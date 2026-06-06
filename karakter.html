@@ -4,43 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karakter - Ruang Nostalgia (A Space for the Unbound)</title>
+    <title>Kisah & Karakter - Ruang Nostalgia (A Space for the Unbound)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* ── KARAKTER PAGE — FIXED POLAROID LAYOUT ── */
+        /* ── PAGE WRAPPER ── */
         .karakter-page-wrapper {
-            padding: 60px 8% 120px;
-            max-width: 1000px;
+            padding: 50px 2% 80px;
+            max-width: 1100px;
             margin: 0 auto;
             text-align: center;
         }
+
         .karakter-header {
-            margin-bottom: 70px;
+            margin-bottom: 50px;
         }
+
         .karakter-header h1 {
             font-size: 2.4rem;
             color: var(--teks-utama);
             margin-bottom: 10px;
         }
+
         .karakter-header p {
             color: var(--teks-pudar);
             font-size: 1.1rem;
         }
 
-        /* Gallery: flex row, centered */
-        .karakter-gallery {
+        /* ── 3-COL STAGE ── */
+        .story-stage {
             display: flex;
-            justify-content: center;
             align-items: flex-start;
-            gap: 50px;
-            flex-wrap: wrap;
+            justify-content: center;
+            gap: 28px;
+            width: 100%;
         }
 
-        /* ── POLAROID: reset all conflicting rules, define cleanly ── */
-        .karakter-gallery .polaroid-card {
+        /* ── POLAROID COL ── */
+        .polaroid-col {
+            flex: 0 0 190px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 60px;
+        }
+
+        .polaroid-card {
             position: relative;
             display: flex;
             flex-direction: column;
@@ -50,27 +63,27 @@
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-top: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 14px 14px 36px 14px;
-            width: 230px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.04);
-            cursor: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='9' y1='9' x2='24' y2='24' stroke='%23E76F51' stroke-width='3.5' stroke-linecap='round'/%3E%3Cline x1='9.5' y1='9.5' x2='23.5' y2='23.5' stroke='%23FF85A1' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='24' r='2.5' fill='%23F4A261' stroke='%232C2520' stroke-width='0.5'/%3E%3Ccircle cx='9' cy='9' r='2.5' fill='%23F4A261' stroke='%232C2520' stroke-width='0.5'/%3E%3Cpath d='M 8 1 L 10 5.5 L 15 6 L 11 9.5 L 12.5 14.5 L 8 12 L 3.5 14.5 L 5 9.5 L 1 6 L 6 5.5 Z' fill='%23FFD166' stroke='%232C2520' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M 8 3.5 L 9.2 6.2 L 12.2 6.5 L 9.8 8.6 L 10.7 11.6 L 8 10 L 5.3 11.6 L 6.2 8.6 L 3.8 6.5 L 6.8 6.2 Z' fill='%23FFF' opacity='0.6'/%3E%3Ccircle cx='8' cy='8' r='2' fill='%232A9D8F'/%3E%3C/svg%3E") 8 1, pointer !important;
+            padding: 12px 12px 32px 12px;
+            width: 100%;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
             animation: spaceFloat 6s ease-in-out infinite;
-            transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: box-shadow 0.3s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .karakter-gallery .polaroid-card,
-        .karakter-gallery .polaroid-card * {
-            cursor: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='9' y1='9' x2='24' y2='24' stroke='%23E76F51' stroke-width='3.5' stroke-linecap='round'/%3E%3Cline x1='9.5' y1='9.5' x2='23.5' y2='23.5' stroke='%23FF85A1' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='24' r='2.5' fill='%23F4A261' stroke='%232C2520' stroke-width='0.5'/%3E%3Ccircle cx='9' cy='9' r='2.5' fill='%23F4A261' stroke='%232C2520' stroke-width='0.5'/%3E%3Cpath d='M 8 1 L 10 5.5 L 15 6 L 11 9.5 L 12.5 14.5 L 8 12 L 3.5 14.5 L 5 9.5 L 1 6 L 6 5.5 Z' fill='%23FFD166' stroke='%232C2520' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M 8 3.5 L 9.2 6.2 L 12.2 6.5 L 9.8 8.6 L 10.7 11.6 L 8 10 L 5.3 11.6 L 6.2 8.6 L 3.8 6.5 L 6.8 6.2 Z' fill='%23FFF' opacity='0.6'/%3E%3Ccircle cx='8' cy='8' r='2' fill='%232A9D8F'/%3E%3C/svg%3E") 8 1, pointer !important;
+
+        .polaroid-card {
+            cursor: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='9' y1='9' x2='24' y2='24' stroke='%23E76F51' stroke-width='3.5' stroke-linecap='round'/%3E%3Cline x1='9.5' y1='9.5' x2='23.5' y2='23.5' stroke='%23FF85A1' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='24' r='2.5' fill='%23F4A261' stroke='%232C2520' stroke-width='0.5'/%3E%3Ccircle cx='9' cy='9' r='2.5' fill='%23F4A261' stroke='%232C2520' stroke-width='0.5'/%3E%3Cpath d='M 8 1 L 10 5.5 L 15 6 L 11 9.5 L 12.5 14.5 L 8 12 L 3.5 14.5 L 5 9.5 L 1 6 L 6 5.5 Z' fill='%23FFD166' stroke='%232C2520' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M 8 3.5 L 9.2 6.2 L 12.2 6.5 L 9.8 8.6 L 10.7 11.6 L 8 10 L 5.3 11.6 L 6.2 8.6 L 3.8 6.5 L 6.8 6.2 Z' fill='%23FFF' opacity='0.6'/%3E%3Ccircle cx='8' cy='8' r='2' fill='%232A9D8F'/%3E%3C/svg%3E") 8 1, pointer;
         }
-        .karakter-gallery .polaroid-card:nth-child(2) {
+
+        .polaroid-card:last-child {
             animation-delay: -3s;
         }
-        .karakter-gallery .polaroid-card:hover {
+
+        .polaroid-card:hover {
             animation-play-state: paused;
-            box-shadow: 0 20px 55px rgba(231, 111, 81, 0.2), inset 0 0 20px rgba(255,255,255,0.06);
+            box-shadow: 0 20px 55px rgba(231, 111, 81, 0.25);
             transform: translateY(-6px) scale(1.02);
         }
 
-        /* Tape strip */
         .polaroid-card .tape {
             position: absolute;
             top: -14px;
@@ -79,101 +92,286 @@
             height: 24px;
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(4px);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
             transform: rotate(2deg);
             pointer-events: none;
         }
 
-        /* Photo area — FIXED size */
         .polaroid-card .photo-img {
             width: 100%;
-            height: 220px;
+            height: 190px;
             background-size: cover !important;
             background-position: center !important;
             background-repeat: no-repeat !important;
-            border: 1px solid rgba(0, 0, 0, 0.15);
             display: block;
         }
+
         .polaroid-card .photo-img.atma {
             background-image: url('images/foto-kiri.jpg') !important;
         }
+
         .polaroid-card .photo-img.raya {
             background-image: url('images/foto-kanan.jpg') !important;
         }
 
-        /* Caption */
         .polaroid-card .caption {
             font-family: 'Lora', Georgia, serif;
             font-style: italic;
             font-size: 0.9rem;
             text-align: center;
-            margin-top: 12px;
+            margin-top: 10px;
             color: var(--teks-utama);
-            letter-spacing: 0.3px;
         }
 
-        /* Character desc — hidden, shown in modal */
         .polaroid-card .character-desc {
             display: none;
         }
 
-        /* ── STICKY NOTE ── */
-        .karakter-gallery .sticky-note {
-            position: relative;
+        /* ── BUKU MERAH CENTER ── */
+        .buku-merah-center {
+            flex: 1 1 auto;
+            min-width: 0;
+            max-width: 560px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: rgba(244, 162, 97, 0.12);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(244, 162, 97, 0.3);
-            border-top: 1px solid rgba(244, 162, 97, 0.5);
-            padding: 24px 20px;
-            width: 180px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(244, 162, 97, 0.08);
-            animation: spaceFloatCenter 7s ease-in-out infinite;
-            transition: box-shadow 0.3s ease;
-            align-self: center;
+            gap: 0;
+            margin: 0 auto;
         }
-        .sticky-note:hover {
+
+        /* Ikon */
+        .buku-icon-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: bukuFloat 5s ease-in-out infinite;
+        }
+
+        .buku-icon-wrap,
+        .buku-icon-wrap * {
+            cursor: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='9' y1='9' x2='24' y2='24' stroke='%23E76F51' stroke-width='3.5' stroke-linecap='round'/%3E%3Cline x1='9.5' y1='9.5' x2='23.5' y2='23.5' stroke='%23FF85A1' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='24' r='2.5' fill='%23F4A261' stroke='%232C2520' stroke-width='0.5'/%3E%3Ccircle cx='9' cy='9' r='2.5' fill='%23F4A261' stroke='%232C2520' stroke-width='0.5'/%3E%3Cpath d='M 8 1 L 10 5.5 L 15 6 L 11 9.5 L 12.5 14.5 L 8 12 L 3.5 14.5 L 5 9.5 L 1 6 L 6 5.5 Z' fill='%23FFD166' stroke='%232C2520' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M 8 3.5 L 9.2 6.2 L 12.2 6.5 L 9.8 8.6 L 10.7 11.6 L 8 10 L 5.3 11.6 L 6.2 8.6 L 3.8 6.5 L 6.8 6.2 Z' fill='%23FFF' opacity='0.6'/%3E%3Ccircle cx='8' cy='8' r='2' fill='%232A9D8F'/%3E%3C/svg%3E") 8 1, pointer;
+        }
+
+        .buku-icon-wrap:hover {
+            transform: scale(1.08) translateY(-4px);
             animation-play-state: paused;
         }
-        .sticky-note .pin {
-            width: 14px;
-            height: 14px;
-            background: var(--senja-jingga);
-            box-shadow: 0 0 10px var(--senja-jingga), 0 0 20px var(--senja-jingga), inset 0 0 4px #FFF;
-            border-radius: 50%;
-            position: absolute;
-            top: -7px;
-            left: calc(50% - 7px);
-            z-index: 10;
+
+        .buku-icon-svg {
+            width: 80px;
+            height: 80px;
+            filter: drop-shadow(0 0 18px rgba(220, 38, 38, 0.5)) drop-shadow(0 0 6px rgba(220, 38, 38, 0.3));
         }
-        .sticky-note p {
+
+        .buku-label {
             font-family: 'Lora', Georgia, serif;
             font-style: italic;
-            font-size: 0.9rem;
-            color: var(--teks-utama);
-            line-height: 1.5;
+            font-size: 0.8rem;
+            color: var(--teks-pudar);
+            letter-spacing: 0.5px;
+        }
+
+        /* Connector */
+        .buku-connector {
+            width: 2px;
+            height: 24px;
+            background: linear-gradient(to bottom, rgba(220, 38, 38, 0.6), rgba(220, 38, 38, 0.05));
+            margin: 0 auto;
+        }
+
+        /* Story Panel */
+        .story-panel {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            text-align: left;
+        }
+
+        /* Tabs — 2 baris x 4 kolom */
+        .story-tabs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: rgba(220, 38, 38, 0.05);
+        }
+
+        .story-tab {
+            padding: 9px 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 700;
+            color: var(--teks-pudar);
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, background 0.2s, border-color 0.2s;
+            cursor: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='9' y1='9' x2='24' y2='24' stroke='%23E76F51' stroke-width='3.5' stroke-linecap='round'/%3E%3Cline x1='9.5' y1='9.5' x2='23.5' y2='23.5' stroke='%23FF85A1' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='24' r='2.5' fill='%23F4A261' stroke='%232C2520' stroke-width='0.5'/%3E%3Ccircle cx='9' cy='9' r='2.5' fill='%23F4A261' stroke='%232C2520' stroke-width='0.5'/%3E%3Cpath d='M 8 1 L 10 5.5 L 15 6 L 11 9.5 L 12.5 14.5 L 8 12 L 3.5 14.5 L 5 9.5 L 1 6 L 6 5.5 Z' fill='%23FFD166' stroke='%232C2520' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M 8 3.5 L 9.2 6.2 L 12.2 6.5 L 9.8 8.6 L 10.7 11.6 L 8 10 L 5.3 11.6 L 6.2 8.6 L 3.8 6.5 L 6.8 6.2 Z' fill='%23FFF' opacity='0.6'/%3E%3Ccircle cx='8' cy='8' r='2' fill='%232A9D8F'/%3E%3C/svg%3E") 8 1, pointer;
+        }
+
+        .story-tab:nth-child(n+5) {
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .story-tab:hover {
+            color: var(--teks-utama);
+            background: rgba(220, 38, 38, 0.07);
+        }
+
+        .story-tab.active {
+            color: #f87171;
+            border-bottom-color: #dc2626;
+            background: rgba(220, 38, 38, 0.06);
+        }
+
+        /* Story Content */
+        .story-content {
+            padding: 20px 20px;
+            text-align: left;
+            max-height: 250px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(220, 38, 38, 0.3) transparent;
+        }
+
+        .story-content::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .story-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .story-content::-webkit-scrollbar-thumb {
+            background: rgba(220, 38, 38, 0.3);
+            border-radius: 4px;
+        }
+
+        .story-pane {
+            display: none;
+        }
+
+        .story-pane.active {
+            display: block;
+        }
+
+        .story-pane h3 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #f87171;
+            margin: 0 0 8px;
+        }
+
+        .story-pane p {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 0.78rem;
+            color: var(--teks-pudar);
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .story-pane p:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-pane .highlight {
+            color: var(--teks-utama);
+            font-style: italic;
+        }
+
+        /* Mobile polaroid row */
+        .mobile-polaroid-row {
+            display: none;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 20px 0 0;
+        }
+
+        .mobile-polaroid-row .polaroid-card {
+            width: 130px;
+            animation: none !important;
+        }
+
+        .mobile-polaroid-row .polaroid-card .photo-img {
+            height: 120px;
+        }
+
+        .mobile-polaroid-row .polaroid-card .caption {
+            font-size: 0.78rem;
+            margin-top: 6px;
+        }
+
+        @media (min-width: 769px) {
+            .mobile-polaroid-row {
+                display: none !important;
+            }
         }
 
         /* Mobile */
         @media (max-width: 768px) {
-            .karakter-gallery {
+            .karakter-page-wrapper {
+                padding: 40px 5% 80px;
+            }
+
+            .karakter-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .karakter-header {
+                margin-bottom: 36px;
+            }
+
+            .story-stage {
                 flex-direction: column;
                 align-items: center;
-                gap: 40px;
             }
-            .karakter-gallery .polaroid-card {
-                width: 80%;
-                max-width: 260px;
+
+            .polaroid-col {
+                display: none;
+            }
+
+            .mobile-polaroid-row {
+                display: flex;
+            }
+
+            .buku-icon-wrap {
                 animation: none;
             }
-            .karakter-gallery .sticky-note {
-                width: 80%;
-                max-width: 220px;
-                animation: none;
+
+            .buku-merah-center {
+                width: 100%;
+            }
+
+            .story-content {
+                max-height: 220px;
+                padding: 16px 14px;
+            }
+
+            .story-tab {
+                font-size: 0.58rem;
+                padding: 8px 2px;
+            }
+        }
+
+        @keyframes bukuFloat {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+
+            100% {
+                transform: translateY(0px);
             }
         }
     </style>
@@ -185,37 +383,200 @@
         <nav class="nav-links">
             <a href="index.html">Beranda</a>
             <a href="jurnal.html">Jurnal</a>
-            <a href="karakter.html" class="active">Karakter</a>
+            <a href="karakter.html" class="active">Kisah & Karakter</a>
         </nav>
     </header>
 
     <main class="karakter-page-wrapper">
         <div class="karakter-header">
-            <h1>Arsip Karakter</h1>
-            <p>Mengenal lebih dekat jiwa-jiwa yang terhubung di kota Loka.</p>
+            <h1>Kisah & Karakter</h1>
+            <p>Jejak jiwa-jiwa yang terhubung di Ruang untuk yang Tak Terikat.</p>
         </div>
 
-        <div class="karakter-gallery">
-            <!-- Polaroid Atma -->
-            <div class="polaroid-card" id="polaroid-atma" tabindex="0" role="button" aria-label="Lihat profil Atma">
-                <div class="tape"></div>
-                <div class="photo-img atma"></div>
-                <p class="caption">Atma, '98</p>
-                <div class="character-desc">
-                    <p>Seorang siswa SMA dengan kekuatan supranatural "Space Dive". Menggunakan Buku Merah magisnya, ia dapat menyelami pikiran orang lain untuk menyembuhkan trauma dan ketakutan terdalam mereka.</p>
+        <div class="story-stage">
+
+            <!-- KIRI: Polaroid Atma (desktop only) -->
+            <div class="polaroid-col">
+                <div class="polaroid-card" id="polaroid-atma" tabindex="0" role="button" aria-label="Lihat profil Atma">
+                    <div class="tape"></div>
+                    <div class="photo-img atma"></div>
+                    <p class="caption">Atma, '98</p>
+                    <div class="character-desc">
+                        <p>Seorang pemuda dengan jiwa penulis yang tulus. Menggunakan Buku Merah Ajaib, ia menyelami
+                            pikiran orang lain untuk menyembuhkan luka terdalam mereka.</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Polaroid Raya -->
-            <div class="polaroid-card" id="polaroid-raya" tabindex="0" role="button" aria-label="Lihat profil Raya">
-                <div class="tape"></div>
-                <div class="photo-img raya"></div>
-                <p class="caption">Raya, '98</p>
-                <div class="character-desc">
-                    <p>Kekasih Atma yang ceria namun menyimpan luka batin yang kelam. Ia memiliki kemampuan luar biasa mengubah realitas yang perlahan mulai mengancam eksistensi kota Loka.</p>
+            <!-- TENGAH: Buku Merah + Story Panel -->
+            <div class="buku-merah-center">
+
+                <!-- Ikon Buku Merah -->
+                <div class="buku-icon-wrap" id="buku-toggle">
+                    <svg class="buku-icon-svg" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="16" y="8" width="58" height="72" rx="5" fill="#b91c1c" />
+                        <rect x="16" y="8" width="10" height="72" rx="3" fill="#991b1b" />
+                        <rect x="28" y="14" width="40" height="3" rx="1.5" fill="rgba(255,255,255,0.15)" />
+                        <rect x="30" y="24" width="34" height="2" rx="1" fill="rgba(255,255,255,0.25)" />
+                        <rect x="30" y="32" width="28" height="2" rx="1" fill="rgba(255,255,255,0.18)" />
+                        <rect x="30" y="40" width="32" height="2" rx="1" fill="rgba(255,255,255,0.18)" />
+                        <rect x="30" y="48" width="26" height="2" rx="1" fill="rgba(255,255,255,0.12)" />
+                        <circle cx="47" cy="62" r="8" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)"
+                            stroke-width="1" />
+                        <text x="47" y="66" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.7)">✦</text>
+                        <rect x="26" y="8" width="2" height="72" fill="rgba(0,0,0,0.15)" />
+                        <rect x="16" y="8" width="58" height="72" rx="5" fill="none" stroke="rgba(248,113,113,0.4)"
+                            stroke-width="1.5" />
+                    </svg>
+                    <span class="buku-label">✦ Buku Merah Ajaib ✦</span>
+                </div>
+
+                <div class="buku-connector" id="buku-connector"></div>
+
+                <!-- Story Panel -->
+                <div class="story-panel" id="story-panel">
+                    <div class="story-tabs">
+                        <button class="story-tab active" data-pane="pendahuluan">Pendahuluan</button>
+                        <button class="story-tab" data-pane="atma">Prolog Atma</button>
+                        <button class="story-tab" data-pane="raya">Bab Raya</button>
+                        <button class="story-tab" data-pane="erik">Bab Erik</button>
+                        <button class="story-tab" data-pane="lulu">Bab Lulu</button>
+                        <button class="story-tab" data-pane="marin">Bab Marin</button>
+                        <button class="story-tab" data-pane="akhir">Bab Terakhir</button>
+                        <button class="story-tab" data-pane="epilog">Epilog</button>
+                    </div>
+                    <div class="story-content">
+
+                        <div class="story-pane active" id="pane-pendahuluan">
+                            <h3>Pendahuluan — Sebelum Semuanya Dimulai</h3>
+                            <p>Di kota Loka, gadis bernama <span class="highlight">Nirmala</span> tumbuh dengan mimpi
+                                menulis cerita. Namun perundungan dan tekanan ayahnya membuatnya menyendiri. Di tepi
+                                sungai itulah ia bertemu <span class="highlight">Atma</span> — seorang pemuda pengembara
+                                yang bermimpi menjadi penulis.</p>
+                            <p>Keduanya menulis bersama dalam <span class="highlight">Buku Merah Ajaib</span>. Hingga
+                                suatu hari, Atma menyelamatkan Nirmala dari tenggelam — dan justru ia sendiri yang
+                                hanyut tak pernah kembali. Nirmala yang trauma membuang jati dirinya, dan lahirlah
+                                topeng bernama <span class="highlight">Raya</span>.</p>
+                        </div>
+
+
+                        <div class="story-pane" id="pane-atma">
+                            <h3>Prolog Atma — Jiwa yang Terperangkap</h3>
+                            <p>Raya jatuh koma karena depresi berat. Di alam bawah sadarnya — <span
+                                    class="highlight">Ruang untuk yang Tak Terikat</span> — jiwa Nirmala membangkitkan
+                                kembali jiwa Atma yang selama ini terperangkap di ruang yang sama.</p>
+                            <p>Atma tak sadar dirinya telah tiada. Nirmala mengajarkannya kekuatan Buku Merah Ajaib agar
+                                ia bisa membantu Raya berdamai dengan kenyataan. Namun Raya menyadarinya, lalu menarik
+                                Atma masuk ke dunia mimpinya.</p>
+                        </div>
+
+
+                        <div class="story-pane" id="pane-raya">
+                            <h3>Bab Raya — Dunia yang Dirancang Ulang</h3>
+                            <p>Raya menciptakan dunia sekolah yang sepenuhnya ia kendalikan, memaksa Atma percaya ia
+                                adalah murid SMA Loka. Hanya "orang-orang yang melayani" — penjaga kantin, pedagang kaki
+                                lima — yang tampak mengenal Atma; mereka adalah ingatan nyata Atma sendiri.</p>
+                            <p>Dengan Buku Merah Ajaib, Atma mulai membantu warga melepas beban batin mereka, sambil
+                                perlahan menyadari bahwa dunia ini adalah mimpi yang tidak boleh abadi.</p>
+                        </div>
+
+
+                        <div class="story-pane" id="pane-erik">
+                            <h3>Bab Erik — Kenangan yang Dihapus</h3>
+                            <p>Nirmala mencoba merekonstruksi kenangan asli Raya agar ia mampu menghadapi kesedihan atas
+                                <span class="highlight">Laksamana</span> — kucingnya yang mati akibat ulah Erik, sang
+                                penindas masa kecil.
+                            </p>
+                            <p>Namun Raya marah karena Erik tak berperilaku sesuai kehendaknya, dan dalam amarahnya, ia
+                                menghapus Erik dari ruang tersebut — memperlihatkan betapa dalamnya luka yang ia
+                                sembunyikan.</p>
+                        </div>
+
+
+                        <div class="story-pane" id="pane-lulu">
+                            <h3>Bab Lulu — Kontradiksi yang Terbongkar</h3>
+                            <p><span class="highlight">Lulu</span>, sahabat Raya, adalah salah satu jiwa yang ingatannya
+                                bertentangan dengan dunia rekaan Raya. Atma membantunya mengungkap kontradiksi itu,
+                                menggoyahkan keyakinan Raya bahwa dunianya sempurna.</p>
+                            <p>Raya merespons keras: ia menghancurkan Buku Merah Ajaib, lalu melemparkan meteor ke kota
+                                sebagai luapan frustrasi.</p>
+                        </div>
+
+
+                        <div class="story-pane" id="pane-marin">
+                            <h3>Bab Marin — Jembatan Menuju Kebenaran</h3>
+                            <p><span class="highlight">Marin</span>, teman masa kecil Nirmala, mengenalkan <span
+                                    class="highlight">Tongkat Ajaib</span> — artefak yang memungkinkan Atma menyelami
+                                tempat dan waktu tertentu dalam ingatan kolektif, bahkan mengambil kembali Buku Merah.
+                            </p>
+                            <p>Raya menciptakan "Atma palsu" untuk menggantikan yang asli, namun gagal — Atma nyata tak
+                                bisa ditiru. Setelah Marin dihapus Raya, Atma akhirnya menyentuh kenangan terdalam Raya.
+                            </p>
+                        </div>
+
+
+                        <div class="story-pane" id="pane-akhir">
+                            <h3>Bab Terakhir — Pilihan Jiwa</h3>
+                            <p>Nirmala mengungkap kebenaran: Atma sudah lama tiada. Ia adalah <span
+                                    class="highlight">anomali</span> — satu-satunya yang bisa menahan kekuatan Raya.
+                                Atma dihadapkan dua pilihan: tetap ada atau menyelamatkan Raya.</p>
+                            <p>Tanpa ragu, Atma memilih Raya. Keduanya menyusun "daftar keinginan" bersama. Raya bersatu
+                                kembali dengan Nirmala, menerima dirinya. Atma pun menghilang — namun tidak sebelum
+                                meyakinkan Raya bahwa ia akan selalu hidup di dalam kenangan.</p>
+                        </div>
+
+
+                        <div class="story-pane" id="pane-epilog">
+                            <h3>Epilog — Setelah Badai</h3>
+                            <p>Raya terbangun dari komanya. Ia berjalan ke tepi sungai tempat ia dan Atma dulu bertemu —
+                                untuk mengucapkan selamat tinggal terakhir.</p>
+                            <p><span class="highlight">"Setelah badai, kau akan menemukan matahari terbitmu."</span></p>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- Mobile: dua polaroid muncul di bawah buku -->
+                <div class="mobile-polaroid-row">
+                    <div class="polaroid-card" id="polaroid-atma-m" tabindex="0" role="button"
+                        aria-label="Lihat profil Atma">
+                        <div class="tape"></div>
+                        <div class="photo-img atma"></div>
+                        <p class="caption">Atma, '98</p>
+                        <div class="character-desc">
+                            <p>Seorang pemuda dengan jiwa penulis yang tulus. Menggunakan Buku Merah Ajaib, ia menyelami
+                                pikiran orang lain untuk menyembuhkan luka terdalam mereka.</p>
+                        </div>
+                    </div>
+                    <div class="polaroid-card" id="polaroid-raya-m" tabindex="0" role="button"
+                        aria-label="Lihat profil Raya">
+                        <div class="tape"></div>
+                        <div class="photo-img raya"></div>
+                        <p class="caption">Raya, '98</p>
+                        <div class="character-desc">
+                            <p>Kekasih Atma yang ceria namun menyimpan luka batin yang kelam. Ia memiliki kemampuan
+                                mengubah realitas yang perlahan mengancam eksistensi kota Loka.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /buku-merah-center -->
+
+            <!-- KANAN: Polaroid Raya (desktop only) -->
+            <div class="polaroid-col">
+                <div class="polaroid-card" id="polaroid-raya" tabindex="0" role="button" aria-label="Lihat profil Raya">
+                    <div class="tape"></div>
+                    <div class="photo-img raya"></div>
+                    <p class="caption">Raya, '98</p>
+                    <div class="character-desc">
+                        <p>Kekasih Atma yang ceria namun menyimpan luka batin yang kelam. Ia memiliki kemampuan mengubah
+                            realitas yang perlahan mengancam eksistensi kota Loka.</p>
+                    </div>
                 </div>
             </div>
-        </div>
+
+        </div><!-- /story-stage -->
     </main>
 
     <!-- Character Modal -->
@@ -231,7 +592,9 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; 2026 Ruang Nostalgia. Dibuat dengan penuh memori. | Kode sumber tersedia di <a href="https://github.com" target="_blank" style="color: var(--senja-kuning); text-decoration: underline;">GitHub</a></p>
+        <p>&copy; 2026 Ruang Nostalgia. Dibuat dengan penuh memori. | Kode sumber tersedia di <a
+                href="https://github.com" target="_blank"
+                style="color: var(--senja-kuning); text-decoration: underline;">GitHub</a></p>
     </footer>
 
     <div id="retro-cat" class="retro-cat" title="Kucing jalanan yang sedang tidur...">
@@ -243,75 +606,91 @@
 
     <script src="script.js"></script>
     <script>
-    // ── KARAKTER MODAL (fresh implementation, no dependency on old decor-polaroid logic) ──
-    const charModal = document.getElementById('char-modal');
-    const modalPhoto = document.getElementById('modal-photo');
-    const modalCaption = document.getElementById('modal-caption');
-    const modalDesc = document.getElementById('modal-desc');
-    const modalCard = document.getElementById('char-modal-card');
+        // ── STORY TABS ──
+        document.querySelectorAll('.story-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.story-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.story-pane').forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                const pane = document.getElementById('pane-' + tab.dataset.pane);
+                if (pane) pane.classList.add('active');
+            });
+        });
 
-    const characters = {
-        'polaroid-atma': {
-            img: "url('images/foto-kiri.jpg')",
-            caption: 'Atma, \'98',
-            desc: 'Seorang siswa SMA dengan kekuatan supranatural "Space Dive". Menggunakan Buku Merah magisnya, ia dapat menyelami pikiran orang lain untuk menyembuhkan trauma dan ketakutan terdalam mereka.'
-        },
-        'polaroid-raya': {
-            img: "url('images/foto-kanan.jpg')",
-            caption: 'Raya, \'98',
-            desc: 'Kekasih Atma yang ceria namun menyimpan luka batin yang kelam. Ia memiliki kemampuan luar biasa mengubah realitas yang perlahan mulai mengancam eksistensi kota Loka.'
+        // ── CHARACTER MODAL ──
+        const charModal = document.getElementById('char-modal');
+        const modalPhoto = document.getElementById('modal-photo');
+        const modalCaption = document.getElementById('modal-caption');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalCard = document.getElementById('char-modal-card');
+
+        const characters = {
+            'polaroid-atma': {
+                img: "url('images/foto-kiri.jpg')",
+                caption: "Atma, '98",
+                desc: 'Seorang pemuda dengan jiwa penulis yang tulus. Menggunakan Buku Merah Ajaib, ia menyelami pikiran orang lain untuk menyembuhkan trauma dan ketakutan terdalam mereka.'
+            },
+            'polaroid-raya': {
+                img: "url('images/foto-kanan.jpg')",
+                caption: "Raya, '98",
+                desc: 'Kekasih Atma yang ceria namun menyimpan luka batin yang kelam. Ia memiliki kemampuan luar biasa mengubah realitas yang perlahan mulai mengancam eksistensi kota Loka.'
+            },
+            'polaroid-atma-m': {
+                img: "url('images/foto-kiri.jpg')",
+                caption: "Atma, '98",
+                desc: 'Seorang pemuda dengan jiwa penulis yang tulus. Menggunakan Buku Merah Ajaib, ia menyelami pikiran orang lain untuk menyembuhkan trauma dan ketakutan terdalam mereka.'
+            },
+            'polaroid-raya-m': {
+                img: "url('images/foto-kanan.jpg')",
+                caption: "Raya, '98",
+                desc: 'Kekasih Atma yang ceria namun menyimpan luka batin yang kelam. Ia memiliki kemampuan luar biasa mengubah realitas yang perlahan mulai mengancam eksistensi kota Loka.'
+            }
+        };
+
+        function openModal(id) {
+            const data = characters[id];
+            if (!data) return;
+            modalPhoto.style.backgroundImage = data.img;
+            modalPhoto.style.backgroundSize = 'cover';
+            modalPhoto.style.backgroundPosition = 'center';
+            modalCaption.textContent = data.caption;
+            modalDesc.textContent = data.desc;
+            modalDesc.style.transition = 'none';
+            modalDesc.style.opacity = '0';
+            modalDesc.style.transform = 'translateY(6px)';
+            modalCard.style.transition = 'none';
+            modalCard.style.transform = 'scale(0.7) translateY(20px)';
+            modalCard.style.opacity = '0';
+            charModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                modalCard.style.transition = '';
+                modalCard.style.transform = '';
+                modalCard.style.opacity = '';
+                modalDesc.style.transition = '';
+                modalDesc.style.opacity = '';
+                modalDesc.style.transform = '';
+            }));
         }
-    };
 
-    function openModal(id) {
-        const data = characters[id];
-        if (!data) return;
+        Object.keys(characters).forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.addEventListener('click', () => openModal(id));
+            el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(id); });
+        });
 
-        modalPhoto.style.backgroundImage = data.img;
-        modalPhoto.style.backgroundSize = 'cover';
-        modalPhoto.style.backgroundPosition = 'center';
-        modalCaption.textContent = data.caption;
-        modalDesc.textContent = data.desc;
-
-        // Reset animation state
-        modalDesc.style.transition = 'none';
-        modalDesc.style.opacity = '0';
-        modalDesc.style.transform = 'translateY(6px)';
-        modalCard.style.transition = 'none';
-        modalCard.style.transform = 'scale(0.7) translateY(20px)';
-        modalCard.style.opacity = '0';
-
-        charModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-
-        requestAnimationFrame(() => requestAnimationFrame(() => {
-            modalCard.style.transition = '';
-            modalCard.style.transform = '';
-            modalCard.style.opacity = '';
-            modalDesc.style.transition = '';
-            modalDesc.style.opacity = '';
-            modalDesc.style.transform = '';
-        }));
-    }
-
-    ['polaroid-atma', 'polaroid-raya'].forEach(id => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        el.addEventListener('click', () => openModal(id));
-        el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(id); });
-    });
-
-    charModal.addEventListener('click', () => {
-        charModal.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-    modalCard.addEventListener('click', e => e.stopPropagation());
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') {
+        charModal.addEventListener('click', () => {
             charModal.classList.remove('active');
             document.body.style.overflow = '';
-        }
-    });
+        });
+        modalCard.addEventListener('click', e => e.stopPropagation());
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                charModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
     </script>
 </body>
 
