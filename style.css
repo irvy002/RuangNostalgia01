@@ -143,7 +143,6 @@ h3,
    2b. HAMBURGER MENU (MOBILE NAV)
    ========================================== */
 
-/* Hamburger button — hidden on desktop */
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -153,12 +152,11 @@ h3,
     width: 36px;
     height: 36px;
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 6px;
     cursor: pointer;
-    padding: 4px;
+    padding: 6px;
     transition: border-color 0.2s, background 0.2s;
-    z-index: 200;
     flex-shrink: 0;
 }
 
@@ -167,10 +165,9 @@ h3,
     background: rgba(231, 111, 81, 0.08);
 }
 
-/* The three bars */
 .nav-toggle .bar {
     display: block;
-    width: 20px;
+    width: 18px;
     height: 2px;
     background: var(--teks-utama);
     border-radius: 2px;
@@ -180,7 +177,6 @@ h3,
     transform-origin: center;
 }
 
-/* Animate bars to X when open */
 .nav-toggle.open .bar:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
     background: var(--senja-jingga);
@@ -194,45 +190,50 @@ h3,
     background: var(--senja-jingga);
 }
 
-/* Mobile-only: show hamburger, hide inline links */
 @media (max-width: 768px) {
     .nav-toggle {
         display: flex;
     }
 
-    /* Slide-down drawer */
     .nav-links {
+        /* Slide-down drawer */
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
-        transform: translateY(-100%);
+        transform: translateY(-110%);
         opacity: 0;
         pointer-events: none;
+        visibility: hidden;
 
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         gap: 0;
-        padding-top: 80px;
-        padding-bottom: 24px;
+        /* Push content below the sticky navbar (~64px) */
+        padding-top: 64px;
+        padding-bottom: 16px;
 
-        background: rgba(20, 20, 36, 0.97);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+        background: rgba(18, 18, 32, 0.98);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 
-        z-index: 150;
-        transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
-                    opacity 0.3s ease;
+        z-index: 90; /* Below navbar (z-index: 100) so it slides from under it */
+        transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1),
+                    opacity 0.3s ease,
+                    visibility 0s linear 0.38s;
     }
 
-    /* Open state */
     .nav-links.open {
         transform: translateY(0);
         opacity: 1;
         pointer-events: auto;
+        visibility: visible;
+        transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1),
+                    opacity 0.3s ease,
+                    visibility 0s linear 0s;
     }
 
     .nav-links a {
@@ -240,28 +241,33 @@ h3,
         width: 100%;
         text-align: center;
         margin-left: 0;
-        padding: 14px 20px;
+        padding: 15px 24px;
         font-size: 1rem;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.4px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        transition: color 0.2s, background 0.2s;
+        transition: color 0.2s, background-color 0.2s;
     }
 
     .nav-links a:last-child {
         border-bottom: none;
     }
 
+    /* Override all the desktop hover rules on mobile */
     .nav-links a:hover {
         color: var(--senja-jingga) !important;
-        background: rgba(231, 111, 81, 0.07) !important;
+        background-color: rgba(231, 111, 81, 0.08) !important;
+        background-image: none !important;
         text-decoration: none !important;
         transform: none !important;
-        padding: 14px 20px !important;
+        padding: 15px 24px !important;
+        border-radius: 0 !important;
     }
 
     .nav-links a.active {
         color: var(--senja-jingga) !important;
-        background: rgba(231, 111, 81, 0.06) !important;
+        background-color: rgba(231, 111, 81, 0.06) !important;
+        background-image: none !important;
+        border-radius: 0 !important;
     }
 }
 

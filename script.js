@@ -8,16 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks  = document.querySelector('.nav-links');
 
     if (navToggle && navLinks) {
-        // Toggle open/close
         navToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             const isOpen = navLinks.classList.toggle('open');
             navToggle.classList.toggle('open', isOpen);
-            navToggle.setAttribute('aria-expanded', isOpen);
+            navToggle.setAttribute('aria-expanded', String(isOpen));
             document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
-        // Close when a nav link is clicked
+        // Close on link click (before page transition fires)
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
@@ -27,9 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Close when clicking outside the navbar
+        // Close on outside click
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('.navbar')) {
+            if (!e.target.closest('.navbar') && navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                navToggle.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
                 navLinks.classList.remove('open');
                 navToggle.classList.remove('open');
                 navToggle.setAttribute('aria-expanded', 'false');
