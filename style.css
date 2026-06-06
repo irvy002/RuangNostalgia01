@@ -472,9 +472,42 @@ h3,
         background: rgba(255, 255, 255, 0.6) !important;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4) !important;
     }
+
+    /* ==========================================
+   PERBAIKAN NAVBAR MOBILE (HP)
+   ========================================== */
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column !important;
+            align-items: center !important;
+            padding: 15px 5% !important;
+            gap: 12px !important;
+        }
+
+        .logo {
+            text-align: center !important;
+            font-size: 1.5rem !important;
+            white-space: nowrap !important;
+        }
+
+        .nav-links {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 12px !important;
+            margin-top: 0 !important;
+            width: 100% !important;
+        }
+
+        .nav-links a {
+            margin: 0 !important;
+            padding: 5px 8px !important;
+            font-size: 0.85rem !important;
+        }
+    }
 }
 
-/* <--- INI ADALAH TANDA KURUNG PENUTUP YANG SEBELUMNYA HILANG! */
 
 
 /* ==========================================
